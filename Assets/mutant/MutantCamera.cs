@@ -8,11 +8,6 @@ public class MutantCamera : MonoBehaviour
     [SerializeField, Range(0, 90), TooltipAttribute("カメラの角度を設定します")]
     private int CameraAngle = 0; //カメラの角度
 
-    [SerializeField, Range(0.1f, 10.0f), TooltipAttribute("プレイヤーとカメラの距離を設定します")]
-    private float distance = 3.5f; //プレイヤーとカメラの距離
-
-    [SerializeField] private Transform player;  // 注視対象プレイヤー
-
     private Quaternion vRotation;       //カメラの垂直方向
     private Quaternion hRotation;       //カメラの水平方向
     private float turnSpeed = 10.0f;    // 回転速度
@@ -23,9 +18,6 @@ public class MutantCamera : MonoBehaviour
         //回転の初期化
         vRotation = Quaternion.identity;
         hRotation = Quaternion.identity;
-
-        //カメラ位置の初期化(後ろに少し引く)
-        transform.position = player.position - transform.rotation * Vector3.forward * distance;
     }
 
     // Update is called once per frame
@@ -64,10 +56,6 @@ public class MutantCamera : MonoBehaviour
             angle.y += mouseX;
             transform.eulerAngles = angle;
         }
-
-        // カメラの位置(transform.position)の更新
-        // player位置から距離distanceだけ手前に引いた位置を設定
-        transform.position = player.position + new Vector3(0.0f, 0.5f, 2.0f) - transform.rotation * Vector3.forward * distance;
     }
 
 }

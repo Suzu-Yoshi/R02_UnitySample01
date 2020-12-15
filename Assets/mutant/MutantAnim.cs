@@ -22,19 +22,6 @@ public class MutantAnim : MonoBehaviour
             ||  Input.GetKey(KeyCode.S)
             ||  Input.GetKey(KeyCode.D))
         {
-            //歩くアニメーションフラグON
-            anim.SetBool("IsWalk", true);
-        }
-        else
-        {
-            //歩くアニメーションフラグOFF
-            anim.SetBool("IsWalk", false);
-        }
-
-        //左か左のシフトを押すと
-        if(Input.GetKey(KeyCode.RightShift)
-            || Input.GetKey(KeyCode.LeftShift))
-        {
             //走るアニメーションフラグON
             anim.SetBool("IsRun", true);
         }
@@ -43,6 +30,5 @@ public class MutantAnim : MonoBehaviour
             //走るアニメーションフラグOFF
             anim.SetBool("IsRun", false);
         }
-
     }
 }
